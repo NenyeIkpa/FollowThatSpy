@@ -27,6 +27,9 @@ Return true if the string contains only unique characters (ignoring case), other
 
 
 fun isIsogram(str: String): Boolean {
-
+    if(str == "") return true
+    val strToLower = str.lowercase()
+    for (charac in strToLower.indices)
+        if (charac != str.lastIndexOf(strToLower[charac])) return false
     return true
 }

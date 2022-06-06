@@ -24,8 +24,34 @@ Input		               Output
 "BIZ"	    "812"	       true
  */
 
-
 fun similarLicensePlates(plate1: String, plate2: String): Boolean {
+var plate1new = ""
+var plate2new = ""
+    for (i in plate1){
+        if (i != ' '){
+            plate1new += when (i) {
+                '0', 'Q' -> "O"
+                '1', 'T' -> "I"
+                '2' -> "Z"
+                '5' -> "S"
+                '8' -> "B"
+                else -> i.toString()
+            }
+        }
+    }
+    for (i in plate2){
+        if (i != ' '){
+            plate2new += when (i) {
+                '0', 'Q' -> "O"
+                '1', 'T' -> "I"
+                '2' -> "Z"
+                '5' -> "S"
+                '8' -> "B"
+                else -> i.toString()
+            }
+        }
+    }
 
-    return true
+    return plate1new == plate2new
 }
+

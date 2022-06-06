@@ -35,7 +35,16 @@ Raw output:
 Adam,Beth,Charles,Danielle,Eric\n
 3907,17945,10091,10088,10132\n
 48,2,12,13,11
+
  */
+//@chinenye, this example out put sorting is somehow, i dont know how it was sorted
+//this is my output sorted as string
+/*
+Adam,Beth,Charles,Danielle,Eric
+10088,10091,10132,17945,3907
+11,12,13,2,48
+*/
+//
 
 fun sortCsvColumns(csvData: String): String {
    val c =  csvData.replace("\n", "  ")
@@ -67,3 +76,23 @@ fun sortCsvColumns(csvData: String): String {
 
     return ""
 }
+// my solution, it the sorting that is the problem now
+
+fun sortCsvColumnss(csvData: String): String {
+    val c = csvData.replace("\n"," ")
+    var result = ""
+    val k = c.split(" ")
+    for (wordsList in k.indices){
+        val listOfWords = k[wordsList].split(",")
+        val res =  listOfWords.sorted().joinToString(",")
+        result += if (wordsList == k.size-1) res else "$res\n"
+    }
+    return result
+}
+//output
+/*
+Adam,Beth,Charles,Danielle,Eric
+10088,10091,10132,17945,3907
+11,12,13,2,48
+*/
+
